@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useToast } from './ToastProvider';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = ({ isScrolled }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const { showToast } = useToast();
   const [activeSection, setActiveSection] = useState('hero');
+  const location = useLocation();
 
   // Active state observer
   useEffect(() => {
@@ -51,19 +53,43 @@ const Header = ({ isScrolled }) => {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isMobileMenuOpen]);
 
-  const handleNavClick = (e, targetId) => {
+  const handleNavClick = (e, targetId, path) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
-    const elem = document.getElementById(targetId);
-    if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' });
+
+    if (location.pathname !== '/') {
+      // Si no estamos en home, navegar primero y luego hacer scroll
+      window.location.href = `/${targetId ? '#' + targetId : ''}`;
+    } else {
+      const elem = document.getElementById(targetId);
+      if (elem) elem.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  const navLinks = [
+    { id: 'hero', label: 'Inicio', path: '/', scroll: true },
+    { id: 'discover', label: 'Afíliate', path: '/', scroll: true },
+    { id: 'tokens', label: 'Sobre Nosotros', path: '/sobre-nosotros', scroll: false },
+    { id: 'cta-heading', label: 'Contacto', path: '/contacto', scroll: false },
+  ];
+
   return (
     <>
-      <nav className={`nav ${isScrolled ? 'nav--scrolled' : ''}`} id="site-nav" role="navigation" aria-label="Main navigation">
-        <div className="container">
+      <nav className={`nav ${isScrolled ? 'nav--scrolled' : ''}`} id="site-nav" role="navigation" aria-label="Main navigation"
+        style={{
+          position: 'fixed', top: '16px', left: '50%', transform: 'translateX(-50%)',
+          width: 'calc(100% - 48px)', maxWidth: '1100px',
+          borderRadius: 'var(--radius-pill)',
+          background: isScrolled ? 'rgba(252,252,252,0.92)' : 'rgba(252,252,252,0.75)',
+          backdropFilter: 'blur(16px)',
+          border: '1px solid var(--color-border)',
+          boxShadow: 'var(--shadow-card)',
+          transition: 'all var(--dur-mid) ease',
+          padding: '0 var(--space-6)',
+          zIndex: 'var(--z-nav)',
+        }}
+      >
+        <div style={{ maxWidth: '100%' }}>
           <div className="nav__inner">
             <a className="nav__logo" href="#hero" onClick={(e) => handleNavClick(e, 'hero')} aria-label="Smart Pay — Home">
               <span className="nav__logo-mark" aria-hidden="true">
@@ -71,31 +97,33 @@ const Header = ({ isScrolled }) => {
               </span>
               Smart Pay
             </a>
-
             {/* Desktop links */}
             <ul className="nav__links" role="list">
               {[
-                { id: 'hero', label: 'Inicio' },
-                { id: 'discover', label: 'Afiliate' },
-                { id: 'tokens', label: 'Sobre Nosotros' },
-                { id: 'cta-heading', label: 'Contacto' }
+                { id: 'hero', label: 'Inicio', path: '/', scroll: true },
+                { id: 'discover', label: 'Afíliate', path: '/', scroll: true },
+                { id: 'tokens', label: 'Cómo Vender', path: '/sobre-nosotros', scroll: false },
+                { id: 'cta-heading', label: 'Contacto', path: '/contacto', scroll: false },
               ].map((link) => (
                 <li key={link.id}>
-                  <a
-                    className={`nav__link ${activeSection === link.id ? 'nav__link--active' : ''}`}
-                    href={`#${link.id}`}
-                    aria-current={activeSection === link.id ? "page" : undefined}
-                    onClick={(e) => {
-                      if (link.id === 'cta-heading') {
-                        // Just smooth scroll to cta section
-                        handleNavClick(e, 'cta-heading');
-                      } else {
-                        handleNavClick(e, link.id);
-                      }
-                    }}
-                  >
-                    {link.label}
-                  </a>
+                  {link.scroll ? (
+                    <a
+                      className={`nav__link ${activeSection === link.id ? 'nav__link--active' : ''}`}
+                      href={`#${link.id}`}
+                      aria-current={activeSection === link.id ? "page" : undefined}
+                      onClick={(e) => handleNavClick(e, link.id)}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      className={`nav__link ${location.pathname === link.path ? 'nav__link--active' : ''}`}
+                      to={link.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -104,19 +132,20 @@ const Header = ({ isScrolled }) => {
               {/* Desktop CTAs (conditionally rendered mimicking vida.js) */}
               {isDesktop && (
                 <>
-                  <button
+                  <Link
                     className="btn btn--ghost btn--sm"
+                    to="/afiliarse"
                     id="connect-btn"
                   >
-                    Connect Wallet
-                  </button>
-                  <button
+                    Afíliate ya
+                  </Link>
+                  <Link
                     className="btn btn--primary btn--sm"
+                    to="/contacto"
                     id="launch-btn"
-                    onClick={() => showToast("✅ Launching Glyph App…")}
                   >
-                    Launch App
-                  </button>
+                    Contáctanos
+                  </Link>
                 </>
               )}
 
@@ -148,19 +177,29 @@ const Header = ({ isScrolled }) => {
       >
         <ul role="list">
           {[
-            { id: 'hero', label: 'Features' },
-            { id: 'discover', label: 'Discover' },
-            { id: 'tokens', label: 'Markets' },
-            { id: 'cta-heading', label: 'Get Started' }
+            { id: 'hero', label: 'Inicio', path: '/', scroll: true },
+            { id: 'discover', label: 'Afíliate', path: '/', scroll: true },
+            { id: 'tokens', label: 'Sobre Nosotros', path: '/sobre-nosotros', scroll: false },
+            { id: 'cta-heading', label: 'Contacto', path: '/contacto', scroll: false },
           ].map((link) => (
             <li key={`mob-${link.id}`}>
-              <a
-                className={`nav__mobile-link ${activeSection === link.id ? 'nav__mobile-link--active' : ''}`}
-                href={`#${link.id}`}
-                onClick={(e) => handleNavClick(e, link.id)}
-              >
-                {link.label}
-              </a>
+              {link.scroll ? (
+                <a
+                  className={`nav__mobile-link ${activeSection === link.id ? 'nav__mobile-link--active' : ''}`}
+                  href={`#${link.id}`}
+                  onClick={(e) => handleNavClick(e, link.id)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  className={`nav__mobile-link ${location.pathname === link.path ? 'nav__mobile-link--active' : ''}`}
+                  to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -174,7 +213,7 @@ const Header = ({ isScrolled }) => {
           >
             Launch App →
           </button>
-          <button className="btn btn--ghost btn--lg w-full" onClick={() => setIsMobileMenuOpen(false)}>Connect Wallet</button>
+          <button className="btn btn--ghost btn--lg w-full" onClick={() => setIsMobileMenuOpen(false)}>Conectar Billetera</button>
         </div>
       </div>
     </>

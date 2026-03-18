@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300&family=Quicksand:wght@300;400;600;700&display=swap");
 
 /* =========================================================================
        - Low specificity, mobile-first
@@ -23,25 +23,25 @@
   --color-800: #752D00;
   --color-900: #471B00;
   --color-950: #1A0A00;
-  /* Color Palette */
+  /* Color Palette (Light Theme) */
   --color-acid: #FF6200;
-  --color-void: #0a0a0f;
-  --color-deep: #111118;
-  --color-surface: #1a1a28;
-  --color-panel: #22223a;
+  --color-void: #fcfcfc;
+  --color-deep: #ffffff;
+  --color-surface: #f4f4f7;
+  --color-panel: #ebebf0;
   --color-purple: #D15000;
   --color-violet: #FF7E2E;
   --color-pink: #FF9554;
   --color-teal: #FFB78A;
-  --color-white: #ffffff;
-  --color-muted: rgba(255, 255, 255, 0.45);
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-white: #0a0a0f;
+  --color-muted: rgba(10, 10, 15, 0.6);
+  --color-border: rgba(10, 10, 15, 0.08);
   --color-glow-acid: rgba(255, 98, 0, 0.18);
   --color-glow-purple: rgba(209, 80, 0, 0.25);
 
   /* Typography */
-  --font-display: "Orbitron", monospace;
-  --font-body: "Exo 2", sans-serif;
+  --font-display: "Nunito", sans-serif;
+  --font-body: "Quicksand", sans-serif;
 
   --text-2xs: 0.625rem;
   --text-xs: 0.75rem;
@@ -106,9 +106,7 @@
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* -------------------------------------------------------------------------
-       #GENERIC — Resets & Base
-       ------------------------------------------------------------------------- */
+/*  #GENERIC — Resets & Base */
 *,
 *::before,
 *::after {
@@ -187,9 +185,7 @@ button {
   border-radius: var(--radius-sm);
 }
 
-/* -------------------------------------------------------------------------
-       #SKIP LINK — Accessibility
-       ------------------------------------------------------------------------- */
+/* #SKIP LINK — Accessibility */
 .skip-link {
   position: fixed;
   top: var(--space-4);
@@ -210,9 +206,7 @@ button {
   transform: translateY(0);
 }
 
-/* -------------------------------------------------------------------------
-       #LAYOUT — Container Width & Viewport Units
-       ------------------------------------------------------------------------- */
+/* #LAYOUT — Container Width & Viewport Units*/
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -225,9 +219,7 @@ button {
   isolation: isolate;
 }
 
-/* -------------------------------------------------------------------------
-       #NAVIGATION — Sticky, Active States, Smooth Scroll
-       ------------------------------------------------------------------------- */
+/* #NAVIGATION — Sticky, Active States, Smooth Scroll */
 .nav {
   /* Sticky Navigation */
   position: fixed;
@@ -245,7 +237,7 @@ button {
 }
 
 .nav--scrolled {
-  background: rgba(10, 10, 15, 0.85);
+  background: rgba(252, 252, 252, 0.85);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   box-shadow: 0 1px 0 var(--color-border), 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -311,7 +303,7 @@ button {
 .nav__link--active,
 .nav__link:hover {
   color: var(--color-white);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(10, 10, 15, 0.05);
 }
 
 .nav__link--active::after {
@@ -348,7 +340,7 @@ button {
 }
 
 .nav__burger:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(10, 10, 15, 0.06);
 }
 
 .nav__burger span {
@@ -378,7 +370,7 @@ button {
   position: fixed;
   inset: var(--nav-height) 0 0 0;
   z-index: var(--z-overlay);
-  background: rgba(10, 10, 15, 0.97);
+  background: rgba(252, 252, 252, 0.97);
   backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
@@ -411,9 +403,7 @@ button {
   color: var(--color-acid);
 }
 
-/* -------------------------------------------------------------------------
-       #BUTTONS & INTERACTIVE COMPONENTS
-       ------------------------------------------------------------------------- */
+/* #BUTTONS & INTERACTIVE COMPONENTS */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -441,7 +431,7 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 15, 0.08);
   opacity: 0;
   transition: opacity var(--dur-fast) ease;
 }
@@ -474,7 +464,7 @@ button {
 }
 
 .btn--ghost:hover {
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(10, 10, 15, 0.2);
 }
 
 .btn--purple {
@@ -498,9 +488,7 @@ button {
   min-height: 52px;
 }
 
-/* -------------------------------------------------------------------------
-       #HERO SECTION
-       ------------------------------------------------------------------------- */
+/* #HERO SECTION*/
 .hero {
   /* Viewport Units */
   min-height: 100svh;
@@ -534,9 +522,9 @@ button {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px,
+  background-image: linear-gradient(rgba(10, 10, 15, 0.03) 1px,
       transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(10, 10, 15, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%,
       black 40%,
@@ -598,7 +586,7 @@ button {
 
 .hero__title-line--muted {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  -webkit-text-stroke: 1px rgba(10, 10, 15, 0.2);
 }
 
 .hero__subtitle {
@@ -632,7 +620,7 @@ button {
   width: clamp(150px, 25vw, 210px);
   border-radius: 36px;
   background: var(--color-deep);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(10, 10, 15, 0.08);
   overflow: hidden;
   box-shadow: var(--shadow-card);
   position: relative;
@@ -670,7 +658,7 @@ button {
 
 .phone__notch {
   height: 24px;
-  background: var(--color-void);
+  background: var(--color-white);
   border-radius: 0 0 14px 14px;
   width: 40%;
   margin: 0 auto;
@@ -688,7 +676,7 @@ button {
 
 .phone-screen--onboard {
   background: #f8f8f5;
-  color: var(--color-void);
+  color: var(--color-white);
   align-items: center;
   text-align: center;
 }
@@ -706,7 +694,7 @@ button {
 .phone-screen__logo-mark {
   width: 14px;
   height: 14px;
-  background: var(--color-void);
+  background: var(--color-white);
   border-radius: 3px;
   display: grid;
   place-items: center;
@@ -748,7 +736,7 @@ button {
   font-size: 11px;
   font-weight: 900;
   line-height: 1.3;
-  color: var(--color-void);
+  color: var(--color-white);
 }
 
 .phone-screen__btn {
@@ -756,8 +744,8 @@ button {
   align-items: center;
   gap: 5px;
   padding: 6px 10px;
-  background: var(--color-void);
-  color: #fff;
+  background: var(--color-white);
+  color: var(--color-void);
   border-radius: 8px;
   font-size: 8px;
   font-family: var(--font-display);
@@ -768,7 +756,7 @@ button {
 .phone-screen__btn--outline {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  color: var(--color-void);
+  color: var(--color-white);
 }
 
 .phone-screen__btn-icon {
@@ -784,7 +772,7 @@ button {
 /* Wallet screen */
 .phone-screen--wallet {
   background: var(--color-void);
-  color: white;
+  color: var(--color-white);
 }
 
 .wallet-header {
@@ -811,7 +799,7 @@ button {
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 900;
-  color: var(--color-void);
+  color: #fff;
 }
 
 .wallet-card__dot {
@@ -857,7 +845,7 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(10, 10, 15, 0.05);
 }
 
 .wallet-row__info {
@@ -910,9 +898,7 @@ button {
   opacity: 1;
 }
 
-/* -------------------------------------------------------------------------
-       #STATS BAR
-       ------------------------------------------------------------------------- */
+/* #STATS BAR */
 .stats-bar {
   background: var(--color-surface);
   border-top: 1px solid var(--color-border);
@@ -963,9 +949,7 @@ button {
   background: var(--color-border);
 }
 
-/* -------------------------------------------------------------------------
-       #FEATURES SECTION
-       ------------------------------------------------------------------------- */
+/* #FEATURES SECTION */
 .section {
   padding-block: var(--space-24);
 }
@@ -1115,9 +1099,7 @@ button {
   letter-spacing: 0.04em;
 }
 
-/* -------------------------------------------------------------------------
-       #STATS SECTION
-       ------------------------------------------------------------------------- */
+/* #STATS SECTION */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1156,9 +1138,7 @@ button {
   letter-spacing: 0.04em;
 }
 
-/* -------------------------------------------------------------------------
-       #TOKEN CARDS (DeFi Section)
-       ------------------------------------------------------------------------- */
+/* #TOKEN CARDS (DeFi Section)*/
 .tokens-section {
   position: relative;
   overflow: hidden;
@@ -1269,9 +1249,7 @@ button {
   height: 100%;
 }
 
-/* -------------------------------------------------------------------------
-       #CTA SECTION
-       ------------------------------------------------------------------------- */
+/* #CTA SECTION*/
 .cta-section {
   padding-block: var(--space-24);
   position: relative;
@@ -1363,9 +1341,7 @@ button {
   font-weight: 700;
 }
 
-/* -------------------------------------------------------------------------
-       #FOOTER
-       ------------------------------------------------------------------------- */
+/* #FOOTER*/
 .footer {
   background: var(--color-deep);
   border-top: 1px solid var(--color-border);
@@ -1431,16 +1407,12 @@ button {
   font-size: var(--text-xs);
 }
 
-/* -------------------------------------------------------------------------
-       #UTILITIES
-       ------------------------------------------------------------------------- */
+/* #UTILITIES */
 .u-hidden {
   display: none;
 }
 
-/* -------------------------------------------------------------------------
-       #NAV EXTENSIONS
-       ------------------------------------------------------------------------- */
+/* #NAV EXTENSIONS*/
 .nav__mobile-actions {
   margin-top: auto;
   display: flex;
@@ -1448,9 +1420,7 @@ button {
   gap: var(--space-3);
 }
 
-/* -------------------------------------------------------------------------
-       #GLOW ORB POSITIONS
-       ------------------------------------------------------------------------- */
+/* #GLOW ORB POSITIONS*/
 .glow-orb--hero-purple {
   width: 500px;
   height: 500px;
@@ -1473,16 +1443,12 @@ button {
   transform: translate(-50%, -50%);
 }
 
-/* -------------------------------------------------------------------------
-       #HERO BREADCRUMBS
-       ------------------------------------------------------------------------- */
+/* #HERO BREADCRUMBS*/
 .hero__breadcrumbs {
   margin-bottom: var(--space-8);
 }
 
-/* -------------------------------------------------------------------------
-       #PHONE SCREEN EXTENSIONS
-       ------------------------------------------------------------------------- */
+/* #PHONE SCREEN EXTENSIONS */
 .phone-screen__btn-stack {
   display: flex;
   flex-direction: column;
@@ -1566,12 +1532,10 @@ button {
   background: #D15000;
 }
 
-/* -------------------------------------------------------------------------
-       #DISCOVER PHONE SCREEN
-       ------------------------------------------------------------------------- */
+/* #DISCOVER PHONE SCREEN */
 .phone-screen--discover {
-  background: #fff;
-  color: #000;
+  background: var(--color-void);
+  color: var(--color-white);
 }
 
 .discover__title {
@@ -1607,7 +1571,7 @@ button {
 
 .discover__cap-card {
   flex: 1;
-  background: #111;
+  background: var(--color-surface);
   border-radius: 6px;
   padding: 6px;
 }
@@ -1620,7 +1584,7 @@ button {
 .discover__cap-value {
   font-size: 10px;
   font-weight: 800;
-  color: #fff;
+  color: var(--color-white);
   font-family: var(--font-display);
 }
 
@@ -1671,9 +1635,7 @@ button {
   background: linear-gradient(135deg, #e8ffd4, #FF6200);
 }
 
-/* -------------------------------------------------------------------------
-       #TOKEN ICON VARIANTS
-       ------------------------------------------------------------------------- */
+/*  #TOKEN ICON VARIANTS*/
 .token-icon--btc {
   background: #f7931a;
   color: #fff;
@@ -1699,17 +1661,13 @@ button {
   color: #fff;
 }
 
-/* -------------------------------------------------------------------------
-       #CONTAINER BLEED (tokens scroll)
-       ------------------------------------------------------------------------- */
+/* #CONTAINER BLEED (tokens scroll)*/
 .container--bleed {
   padding-right: 0;
   overflow: visible;
 }
 
-/* -------------------------------------------------------------------------
-       #FOOTER EXTENSIONS
-       ------------------------------------------------------------------------- */
+/* #FOOTER EXTENSIONS*/
 .footer__link--inline {
   display: inline;
 }
@@ -1802,9 +1760,7 @@ button {
   transform: translate(2px, -2px);
 }
 
-/* -------------------------------------------------------------------------
-       #ANIMATIONS
-       ------------------------------------------------------------------------- */
+/* #ANIMATIONS */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -1888,9 +1844,7 @@ button {
   }
 }
 
-/* -------------------------------------------------------------------------
-       #RESPONSIVE — Mobile-First Design
-       ------------------------------------------------------------------------- */
+/* #RESPONSIVE — Mobile-First Design*/
 @media (min-width: 600px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);

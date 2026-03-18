@@ -45,49 +45,18 @@ const Hero = () => {
           {/* Phone Mockups */}
           <div className="hero__phones float-anim" aria-hidden="true">
 
-            {/* TV Izquierdo */}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              transform: 'rotate(-3deg)',
-            }}>
-              <div style={{
-                width: '280px',
-                height: '175px',
-                border: '10px solid #222',
-                borderRadius: '12px',
-                boxShadow: '0 0 30px rgba(255,98,0,0.15), 0 8px 32px rgba(0,0,0,0.6)',
-                overflow: 'hidden',
-                background: 'linear-gradient(135deg, #0A0A0F, #5e3392ff, #0A0A0F)',
-                backgroundSize: '400% 400%',
-                animation: 'gradientWave 6s ease infinite',
-              }}></div>
-              <div style={{ width: '50px', height: '18px', background: '#222', borderRadius: '0 0 4px 4px' }}></div>
-              <div style={{ width: '100px', height: '7px', background: '#1a1a1a', borderRadius: '4px' }}></div>
-            </div>
-
-            {/* TV Derecho */}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              transform: 'rotate(3deg)',
-              marginLeft: '32px',
-            }}>
-              <div style={{
-                width: '280px',
-                height: '175px',
-                border: '10px solid #222',
-                borderRadius: '12px',
-                boxShadow: '0 0 30px rgba(255,98,0,0.15), 0 8px 32px rgba(0,0,0,0.6)',
-                overflow: 'hidden',
-                background: 'linear-gradient(135deg, #1a0a2e, #884013ff, #0A0A0F)',
-                backgroundSize: '400% 400%',
-                animation: 'gradientWave 8s ease infinite reverse',
-              }}></div>
-              <div style={{ width: '50px', height: '18px', background: '#222', borderRadius: '0 0 4px 4px' }}></div>
-              <div style={{ width: '100px', height: '7px', background: '#1a1a1a', borderRadius: '4px' }}></div>
+            {/* Imagen TV */}
+            <div className="hero__phones float-anim" aria-hidden="true">
+              <img
+                src="/src/assets/images/unnamed-removebg-preview.png"
+                alt="Smart Pay TV"
+                style={{
+                  width: 'clamp(280px, 45vw, 560px)',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 0 32px var(--color-glow-acid)) drop-shadow(0 16px 48px rgba(0,0,0,0.4))',
+                }}
+              />
             </div>
           </div>{/* /.hero__phones */}
         </div>
