@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useToast } from './ToastProvider';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/images2/logo.webp';
 
 const Header = ({ isScrolled }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -86,7 +87,7 @@ const Header = ({ isScrolled }) => {
 
             {/* LOGO */}
             <a className="nav__logo" href="#hero" onClick={(e) => handleNavClick(e, 'hero')} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'white', fontWeight: 'bold', textDecoration: 'none' }}>
-              <img src="/src/assets/images2/logo.webp" alt="Smart Pay" style={{ width: '30px', height: '30px', objectFit: 'contain' }} />
+              <img src={logo} alt="Smart Pay" style={{ width: '30px', height: '30px', objectFit: 'contain' }} />
               <span style={{ fontSize: '1.1rem', letterSpacing: '-0.5px' }}>Smart Pay</span>
             </a>
 

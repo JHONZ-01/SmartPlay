@@ -1,5 +1,6 @@
 import React from 'react';
 import { useToast } from './ToastProvider';
+import tvHero from '../assets/images2/unnamed-removebg-preview.png';
 
 const Hero = () => {
   const { showToast } = useToast();
@@ -140,7 +141,7 @@ const Hero = () => {
           {/* ── COLUMNA DERECHA — intacta ── */}
           <div className="hero__phones float-anim" aria-hidden="true" style={{ position: 'relative' }}>
             <img
-              src="/src/assets/images2/dispositivos.png"
+              src={tvHero}
               alt="Smart Pay Mockups"
               style={{
                 width: '100%', maxHeight: '650px', objectFit: 'contain',
