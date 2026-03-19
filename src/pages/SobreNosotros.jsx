@@ -295,7 +295,7 @@ const SobreNosotros = () => {
                             </div>
 
                             <a
-                                href="https://wa.me/593995071589?text=Hola,%20quiero%20registrar%20mi%20pago"
+                                href="https://wa.me/593979103229?text=Hola,%20necesito%20soporte%20técnico"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn--primary btn--lg"
@@ -346,7 +346,7 @@ const SobreNosotros = () => {
                             </div>
 
                             <a
-                                href="https://wa.me/593979103229?text=Hola,%20necesito%20soporte%20técnico"
+                                href="https://wa.me/593995071589?text=Hola,%20quiero%20registrar%20mi%20pago"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn--primary btn--lg"
