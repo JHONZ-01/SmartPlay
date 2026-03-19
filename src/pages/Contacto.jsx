@@ -111,7 +111,7 @@ const Contacto = () => {
                 <div style={{ borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-card)', border: '1px solid var(--color-border)' }}>
                     <iframe
                         title="Ubicación Smart Pay"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.795608320363!2d-78.49406492426353!3d-0.18199999999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a4002427c9b%3A0x44b0fb3d4f47660!2sEdificio%20Empresarial%20Unicornio%20II!5e0!3m2!1ses!2sec!4v1700000000000!5m2!1ses!2sec"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1994.899645628837!2d-78.486106!3d-0.17695800000000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a858f56d4d1%3A0xafe084d8581292c2!2sUnicornio%20II%20Edificio%20Empresarial!5e0!3m2!1sen!2sec!4v1773725040511!5m2!1sen!2sec"
                         width="100%"
                         height="460"
                         style={{ border: 0, display: 'block' }}

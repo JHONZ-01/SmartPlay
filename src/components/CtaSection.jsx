@@ -11,7 +11,7 @@ const CtaSection = () => {
       return;
     }
     const mensaje = `Hola, quiero afiliarme a Smart Pay!%0A%0A👤 Nombre: ${encodeURIComponent(form.nombre)}%0A🏪 Negocio: ${encodeURIComponent(form.negocio)}%0A📍 Ciudad: ${encodeURIComponent(form.ciudad)}%0A📞 Teléfono: ${encodeURIComponent(form.telefono)}`;
-    window.open(`https://wa.me/593XXXXXXXXX?text=${mensaje}`, '_blank');
+    window.open(`https://api.whatsapp.com/send/?phone=593997518833&text=${mensaje}`, '_blank');
     setForm({ nombre: '', negocio: '', ciudad: '', telefono: '' });
   };
 

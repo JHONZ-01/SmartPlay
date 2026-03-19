@@ -1,4 +1,7 @@
 import React from 'react';
+import imagenPaso1 from '../assets/images2/3d-render-secure-login-password-illustration.png';
+import imagenPaso2 from '../assets/images2/5143422.png';
+import imagenPaso3 from '../assets/images2/Wavy_Bus-16_Single-07.png';
 
 const SobreNosotros = () => {
     return (
@@ -24,181 +27,169 @@ const SobreNosotros = () => {
 
             {/* Pasos */}
             <div className="container">
-
                 {/* Fila 1: paso 1 y paso 2 */}
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', // Adaptable a pantallas
                     gap: 'var(--space-8)',
                     marginBottom: 'var(--space-8)'
                 }}>
 
                     {/* Paso 1 */}
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-6)' }}>
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}>
                         <span style={{
                             fontSize: '5rem', fontWeight: '900', lineHeight: 1,
-                            color: 'var(--color-black)', fontFamily: 'var(--font-display)',
-                            flexShrink: 0,
+                            color: 'rgba(255, 255, 255, 0.92)', fontFamily: 'var(--font-display)',
+                            flexShrink: 0, WebkitTextStroke: '1px rgba(255,255,255,0.1)'
                         }}>1</span>
                         <div style={{ flex: 1 }}>
                             <div style={{
-                                background: 'rgba(255,98,0,0.06)',
-                                border: '1px solid rgba(255,98,0,0.15)',
+                                background: 'rgba(20, 20, 25, 0.85)',
+                                border: '1px solid rgba(255, 98, 0, 0.3)',
                                 borderRadius: 'var(--radius-lg)',
                                 padding: 'var(--space-6)',
-                                display: 'flex', gap: 'var(--space-4)',
-                                transition: 'transform var(--dur-mid) ease, box-shadow var(--dur-mid) ease',
+                                display: 'flex', alignItems: 'center', gap: 'var(--space-6)',
+                                backdropFilter: 'blur(12px)',
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                                transition: 'all 0.3s ease',
                             }}
                                 onMouseEnter={e => {
-                                    e.currentTarget.style.transform = 'translateY(-4px)';
-                                    e.currentTarget.style.boxShadow = 'var(--shadow-acid)';
+                                    e.currentTarget.style.transform = 'translateY(-5px)';
+                                    e.currentTarget.style.borderColor = 'rgba(255, 98, 0, 0.6)';
+                                    e.currentTarget.style.boxShadow = '0 15px 40px rgba(255, 98, 0, 0.15)';
                                 }}
                                 onMouseLeave={e => {
                                     e.currentTarget.style.transform = 'translateY(0)';
-                                    e.currentTarget.style.boxShadow = 'none';
+                                    e.currentTarget.style.borderColor = 'rgba(255, 98, 0, 0.3)';
+                                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.4)';
                                 }}
                             >
                                 <div style={{ flex: 1 }}>
-                                    <h3 style={{
-                                        color: 'var(--color-acid)', fontWeight: '700',
-                                        marginBottom: 'var(--space-3)', fontSize: 'var(--text-base)'
-                                    }}>Regístrate</h3>
-                                    <p style={{ color: 'var(--color-muted)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>
+                                    <h3 style={{ color: '#FF8a40', fontWeight: '700', marginBottom: '8px', fontSize: '1.2rem' }}>Regístrate</h3>
+                                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', lineHeight: 1.6 }}>
                                         Déjanos tus datos e inmediatamente te informaremos cómo vender con nosotros.
                                     </p>
                                 </div>
-                                {/* Espacio para imagen */}
+
+                                {/* Espacio para imagen Paso 1 */}
                                 <div style={{
                                     width: '120px', height: '100px', flexShrink: 0,
-                                    borderRadius: 'var(--radius-md)', background: 'var(--color-surface)',
+                                    borderRadius: 'var(--radius-md)',
+                                    background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
+                                    border: '1px solid rgba(255,255,255,0.1)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    color: 'var(--color-muted)', fontSize: 'var(--text-xs)'
+                                    overflow: 'hidden', position: 'relative'
                                 }}>
-                                    {/* <img src="" alt="Regístrate" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'var(--radius-md)' }} /> */}
-                                    img aquí
+                                    <img src={imagenPaso1} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Paso 1" />
                                 </div>
                             </div>
-                            <p style={{
-                                textAlign: 'center', marginTop: 'var(--space-3)',
-                                fontSize: 'var(--text-sm)', color: 'var(--color-muted)'
-                            }}>
-                                Sin riesgos y sin papeleos
-                            </p>
+                            <p style={{ textAlign: 'center', marginTop: '12px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)' }}>Sin riesgos y sin papeleos</p>
                         </div>
                     </div>
 
                     {/* Paso 2 */}
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-6)' }}>
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}>
                         <span style={{
                             fontSize: '5rem', fontWeight: '900', lineHeight: 1,
-                            color: 'var(--color-black)', fontFamily: 'var(--font-display)',
-                            flexShrink: 0,
+                            color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'var(--font-display)',
+                            flexShrink: 0, WebkitTextStroke: '1px rgba(255,255,255,0.1)'
                         }}>2</span>
                         <div style={{ flex: 1 }}>
                             <div style={{
-                                background: 'rgba(255,98,0,0.06)',
-                                border: '1px solid rgba(255,98,0,0.15)',
+                                background: 'rgba(20, 20, 25, 0.85)',
+                                border: '1px solid rgba(255, 98, 0, 0.3)',
                                 borderRadius: 'var(--radius-lg)',
                                 padding: 'var(--space-6)',
-                                display: 'flex', gap: 'var(--space-4)',
-                                transition: 'transform var(--dur-mid) ease, box-shadow var(--dur-mid) ease',
+                                display: 'flex', alignItems: 'center', gap: 'var(--space-6)',
+                                backdropFilter: 'blur(12px)',
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                                transition: 'all 0.3s ease',
                             }}
                                 onMouseEnter={e => {
-                                    e.currentTarget.style.transform = 'translateY(-4px)';
-                                    e.currentTarget.style.boxShadow = 'var(--shadow-acid)';
+                                    e.currentTarget.style.transform = 'translateY(-5px)';
+                                    e.currentTarget.style.borderColor = 'rgba(255, 98, 0, 0.6)';
                                 }}
                                 onMouseLeave={e => {
                                     e.currentTarget.style.transform = 'translateY(0)';
-                                    e.currentTarget.style.boxShadow = 'none';
+                                    e.currentTarget.style.borderColor = 'rgba(255, 98, 0, 0.3)';
                                 }}
                             >
                                 <div style={{ flex: 1 }}>
-                                    <h3 style={{
-                                        color: 'var(--color-acid)', fontWeight: '700',
-                                        marginBottom: 'var(--space-3)', fontSize: 'var(--text-base)'
-                                    }}>Vende más televisores</h3>
-                                    <p style={{ color: 'var(--color-muted)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>
-                                        Todos tus clientes pueden recibir un televisor nuevo a crédito directo con{' '}
-                                        <strong style={{ color: 'var(--color-acid)' }}>Smart Pay</strong>.
+                                    <h3 style={{ color: '#FF8a40', fontWeight: '700', marginBottom: '8px', fontSize: '1.2rem' }}>Vende más</h3>
+                                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                                        Tus clientes pueden recibir productos a crédito directo con <strong style={{ color: '#FF8a40' }}>Smart Pay</strong>.
                                     </p>
                                 </div>
-                                {/* Espacio para imagen */}
+
+                                {/* Espacio para imagen Paso 2 */}
                                 <div style={{
                                     width: '120px', height: '100px', flexShrink: 0,
-                                    borderRadius: 'var(--radius-md)', background: 'var(--color-surface)',
+                                    borderRadius: 'var(--radius-md)',
+                                    background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
+                                    border: '1px solid rgba(255,255,255,0.1)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    color: 'var(--color-muted)', fontSize: 'var(--text-xs)'
+                                    overflow: 'hidden'
                                 }}>
-                                    {/* <img src="" alt="Vende más" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'var(--radius-md)' }} /> */}
-                                    img aquí
+                                    <img src={imagenPaso2} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Paso 2" />
                                 </div>
                             </div>
-                            <p style={{
-                                textAlign: 'center', marginTop: 'var(--space-3)',
-                                fontSize: 'var(--text-sm)', color: 'var(--color-muted)'
-                            }}>
-                                Recibe tus pagos al 100%
-                            </p>
+                            <p style={{ textAlign: 'center', marginTop: '12px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)' }}>Recibe tus pagos al 100%</p>
                         </div>
                     </div>
-
                 </div>
 
                 {/* Fila 2: paso 3 centrado */}
-                <div style={{
-                    display: 'flex', justifyContent: 'center',
-                    marginBottom: 'var(--space-16)'
-                }}>
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-6)', maxWidth: '560px', width: '100%' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--space-16)' }}>
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)', maxWidth: '580px', width: '100%' }}>
                         <span style={{
                             fontSize: '5rem', fontWeight: '900', lineHeight: 1,
-                            color: 'var(--color-black)', fontFamily: 'var(--font-display)',
-                            flexShrink: 0,
+                            color: 'rgba(255, 255, 255, 0.89)', fontFamily: 'var(--font-display)',
+                            flexShrink: 0, WebkitTextStroke: '1px rgba(255,255,255,0.1)'
                         }}>3</span>
                         <div style={{ flex: 1 }}>
                             <div style={{
-                                background: 'rgba(255,98,0,0.06)',
-                                border: '1px solid rgba(255,98,0,0.15)',
+                                background: 'rgba(20, 20, 25, 0.85)',
+                                border: '1px solid rgba(255, 98, 0, 0.3)',
                                 borderRadius: 'var(--radius-lg)',
                                 padding: 'var(--space-6)',
-                                display: 'flex', gap: 'var(--space-4)',
-                                transition: 'transform var(--dur-mid) ease, box-shadow var(--dur-mid) ease',
+                                display: 'flex', alignItems: 'center', gap: 'var(--space-6)',
+                                backdropFilter: 'blur(12px)',
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                                transition: 'all 0.3s ease',
                             }}
                                 onMouseEnter={e => {
-                                    e.currentTarget.style.transform = 'translateY(-4px)';
-                                    e.currentTarget.style.boxShadow = 'var(--shadow-acid)';
+                                    e.currentTarget.style.transform = 'translateY(-5px)';
+                                    e.currentTarget.style.borderColor = 'rgba(255, 98, 0, 0.6)';
                                 }}
                                 onMouseLeave={e => {
                                     e.currentTarget.style.transform = 'translateY(0)';
-                                    e.currentTarget.style.boxShadow = 'none';
+                                    e.currentTarget.style.borderColor = 'rgba(255, 98, 0, 0.3)';
                                 }}
                             >
                                 <div style={{ flex: 1 }}>
-                                    <h3 style={{
-                                        color: 'var(--color-acid)', fontWeight: '700',
-                                        marginBottom: 'var(--space-3)', fontSize: 'var(--text-base)'
-                                    }}>Aumenta tu ganancia</h3>
-                                    <p style={{ color: 'var(--color-muted)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>
-                                        Con <strong style={{ color: 'var(--color-acid)' }}>Smart Pay</strong> lograrás
-                                        vender más y mejorar la rentabilidad de tu negocio.
+                                    <h3 style={{ color: '#FF8a40', fontWeight: '700', marginBottom: '8px', fontSize: '1.2rem' }}>Gana más</h3>
+                                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                                        Mejora la rentabilidad de tu negocio vendiendo más volumen cada mes.
                                     </p>
                                 </div>
-                                {/* Espacio para imagen */}
+
+                                {/* Espacio para imagen Paso 3 */}
                                 <div style={{
                                     width: '120px', height: '100px', flexShrink: 0,
-                                    borderRadius: 'var(--radius-md)', background: 'var(--color-surface)',
+                                    borderRadius: 'var(--radius-md)',
+                                    background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
+                                    border: '1px solid rgba(255,255,255,0.1)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    color: 'var(--color-muted)', fontSize: 'var(--text-xs)'
+                                    overflow: 'hidden'
                                 }}>
-                                    {/* <img src="" alt="Aumenta ganancia" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'var(--radius-md)' }} /> */}
-                                    img aquí
+                                    <img src={imagenPaso3} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Paso 3" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+
             {/* Sección ¿Tienes dudas? */}
             <div style={{ background: 'var(--color-surface)', paddingBlock: 'var(--space-24)' }}>
                 <div className="container">
@@ -253,7 +244,7 @@ const SobreNosotros = () => {
                             </div>
 
                             <a
-                                href="https://wa.me/593XXXXXXXXX?text=Hola,%20tengo%20una%20duda%20sobre%20mi%20pago"
+                                href="https://wa.me/593959728822?text=Hola,%20tengo%20una%20duda%20sobre%20mi%20pago"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn--primary btn--lg"
@@ -304,7 +295,7 @@ const SobreNosotros = () => {
                             </div>
 
                             <a
-                                href="https://wa.me/593XXXXXXXXX?text=Hola,%20quiero%20registrar%20mi%20pago"
+                                href="https://wa.me/593995071589?text=Hola,%20quiero%20registrar%20mi%20pago"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn--primary btn--lg"
@@ -355,7 +346,7 @@ const SobreNosotros = () => {
                             </div>
 
                             <a
-                                href="https://wa.me/593XXXXXXXXX?text=Hola,%20necesito%20soporte%20técnico"
+                                href="https://wa.me/593979103229?text=Hola,%20necesito%20soporte%20técnico"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn--primary btn--lg"

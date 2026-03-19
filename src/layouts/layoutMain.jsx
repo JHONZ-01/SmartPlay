@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ToastProvider } from '../components/ToastProvider';
+import lavaBg from '../assets/images2/lava.jpg';
 
 const LayoutMain = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,32 +21,63 @@ const LayoutMain = ({ children }) => {
 
   return (
     <ToastProvider>
-      <div className="relative min-h-screen" style={{ isolation: 'isolate' }}>
+      <div
+        className="relative min-h-screen text-white overflow-x-hidden"
+        style={{ isolation: 'isolate', background: '#05050718' }}
+      >
+        {/* ── FONDO JPG FIJO ── */}
+        <div
+          aria-hidden="true"
+          className="fixed inset-0 -z-10 pointer-events-none"
+          style={{ height: '100vh', width: '100vw' }}
+        >
+          {/* Imagen lava */}
+          <img
+            src={lavaBg}
+            alt=""
+            style={{
+              position: 'absolute', inset: 1,
+              top: 10, left: 0,
+              width: '100%', height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              opacity: 0.45,                    // sutil — sube a 0.25 si quieres más presencia
+              filter: 'saturate(1.2) brightness(0.9)',
+            }}
+          />
 
-        {/* Círculos decorativos de fondo */}
-        <div aria-hidden="true" style={{
-          position: 'fixed', inset: 0, zIndex: -1, overflow: 'hidden', pointerEvents: 'none'
-        }}>
-          {/* Superior derecha */}
-          <div style={{
-            position: 'absolute', top: '-150px', right: '-150px',
-            width: '500px', height: '500px', borderRadius: '50%',
-            background: 'var(--color-glow-acid)',
-            filter: 'blur(1px)',
-          }} />
+          {/* Overlay oscuro base — preserva legibilidad */}
+          <div
+            style={{
+              position: 'relative', inset: 0,
+              background: 'linear-gradient(to bottom, rgba(5, 5, 7, 0.14) 0%, rgba(5,5,7,0.35) 50%, rgba(5,5,7,0.7) 100%)',
+            }}
+          />
 
-          {/* Inferior izquierda */}
-          <div style={{
-            position: 'absolute', bottom: '-100px', left: '-100px',
-            width: '400px', height: '400px', borderRadius: '50%',
-            background: 'var(--color-glow-purple)',
-            filter: 'blur(1px)',
-          }} />
+          {/* Viñeta lateral — oscurece los bordes */}
+          <div
+            style={{
+              position: 'relative', inset: 0,
+              background: 'radial-gradient(ellipse at center, transparent 40%, rgba(5,5,7,0.6) 100%)',
+            }}
+          />
+
+          {/* Tinte naranja sutil para mantener la paleta lava */}
+          <div
+            style={{
+              position: 'relative', inset: 0,
+              background: 'linear-gradient(135deg, rgba(255,98,0,0.06) 0%, transparent 50%, rgba(209,80,0,0.05) 100%)',
+            }}
+          />
         </div>
 
         <Header isScrolled={isScrolled} />
 
-        <main id="main-content" tabIndex="-1">
+        <main
+          id="main-content"
+          tabIndex="-1"
+          className="max-w-7xl mx-auto px-6 pt-28 pb-16"
+        >
           {children}
         </main>
 

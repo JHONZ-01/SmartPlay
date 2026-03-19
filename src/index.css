@@ -25,19 +25,19 @@
   --color-950: #1A0A00;
   /* Color Palette (Light Theme) */
   --color-acid: #FF6200;
-  --color-void: #fcfcfc;
-  --color-deep: #ffffff;
-  --color-surface: #f4f4f7;
-  --color-panel: #ebebf0;
+  --color-void: #0a0a0f;
+  --color-deep: #111118;
+  --color-surface: #1a1a28;
+  --color-panel: #22223a;
   --color-purple: #D15000;
   --color-violet: #FF7E2E;
   --color-pink: #FF9554;
   --color-teal: #FFB78A;
-  --color-white: #0a0a0f;
-  --color-muted: rgba(10, 10, 15, 0.6);
-  --color-border: rgba(10, 10, 15, 0.08);
-  --color-glow-acid: rgba(255, 98, 0, 0.18);
-  --color-glow-purple: rgba(209, 80, 0, 0.25);
+  --color-white: #ffffff;
+  --color-muted: rgba(255, 255, 255, 0.45);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-glow-acid: rgba(255, 98, 0, 0.15);
+  --color-glow-purple: rgba(209, 80, 0, 0.12);
 
   /* Typography */
   --font-display: "Nunito", sans-serif;
@@ -103,7 +103,8 @@
   --shadow-purple: 0 0 40px rgba(209, 80, 0, 0.35),
     0 0 80px rgba(209, 80, 0, 0.15);
   --shadow-pink: 0 0 30px rgba(255, 149, 84, 0.4);
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /*  #GENERIC — Resets & Base */

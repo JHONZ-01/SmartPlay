@@ -1,36 +1,17 @@
 import React from 'react';
 
-import lgLogo from '../assets/images/LG.webp';
-import samsungLogo from '../assets/images/SAMSUNG.png';
-import sonyLogo from '../assets/images/sony-2-logo-svgrepo-com.svg';
-import honorLogo from '../assets/images/Honor.svg';
-import tclLogo from '../assets/images/tcl-logo.svg';
-import osterLogo from '../assets/images/OSTER.png';
-import induramaLogo from '../assets/images/InduramaLogo.png';
-import mabeLogo from '../assets/images/MABE.png';
-import boschLogo from '../assets/images/BOSCH.png';
-import realmeLogo from '../assets/images/realme.png';
-import jvcLogo from '../assets/images/JVC.png';
-import whirlpoolLogo from '../assets/images/WHIRLPOOL.png';
-import electroluxLogo from '../assets/images/Electrolux.png';
+// Cargar automáticamente todas las imágenes
+const images = import.meta.glob('../assets/images/*', { eager: true });
 
-const brands = [
-  { name: 'LG', src: lgLogo },
-  { name: 'whirlpool', src: whirlpoolLogo },
-  { name: 'Samsung', src: samsungLogo },
-  { name: 'Realme', src: realmeLogo },
-  { name: 'Honor', src: honorLogo },
-  { name: 'TCL', src: tclLogo },
-  { name: 'Oster', src: osterLogo },
-  { name: 'Indurama', src: induramaLogo },
-  { name: 'Mabe', src: mabeLogo },
-  { name: 'Bosch', src: boschLogo },
-  { name: 'Sony', src: sonyLogo },
-  { name: 'Honor', src: honorLogo },
-  { name: 'JVC', src: jvcLogo },
-  { name: 'Electrolux', src: electroluxLogo },
+// Convertir a array usable
+const brands = Object.entries(images).map(([path, module]) => {
+  const fileName = path.split('/').pop().split('.')[0];
 
-];
+  return {
+    name: fileName,
+    src: module.default,
+  };
+});
 
 const TickerBar = () => {
   return (
