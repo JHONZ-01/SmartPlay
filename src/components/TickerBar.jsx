@@ -6,7 +6,7 @@ import sonyLogo from '../assets/images/sony-2-logo-svgrepo-com.svg';
 import honorLogo from '../assets/images/Honor.svg';
 import tclLogo from '../assets/images/tcl-logo.svg';
 import osterLogo from '../assets/images/OSTER.png';
-import induramaLogo from '../assets/images/induramaLogo.png';
+import induramaLogo from '../assets/images/InduramaLogo.png';
 import mabeLogo from '../assets/images/MABE.png';
 import boschLogo from '../assets/images/BOSCH.png';
 import realmeLogo from '../assets/images/realme.png';
