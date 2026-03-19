@@ -68,7 +68,7 @@ const Header = ({ isScrolled }) => {
 
   const navLinks = [
     { id: 'hero', label: 'Inicio', path: '/', scroll: true },
-    { id: 'discover', label: 'Afíliate', path: '/', scroll: true },
+    { id: 'cta-heading', label: 'Afíliate', path: '/', scroll: true },
     { id: 'tokens', label: 'Sobre Nosotros', path: '/sobre-nosotros', scroll: false },
     { id: 'cta-heading', label: 'Contacto', path: '/contacto', scroll: false },
   ];
@@ -101,7 +101,7 @@ const Header = ({ isScrolled }) => {
             <ul className="nav__links" role="list">
               {[
                 { id: 'hero', label: 'Inicio', path: '/', scroll: true },
-                { id: 'discover', label: 'Afíliate', path: '/', scroll: true },
+                { id: 'cta-heading', label: 'Afíliate', path: '/', scroll: true },
                 { id: 'tokens', label: 'Cómo Vender', path: '/sobre-nosotros', scroll: false },
                 { id: 'cta-heading', label: 'Contacto', path: '/contacto', scroll: false },
               ].map((link) => (
@@ -132,13 +132,14 @@ const Header = ({ isScrolled }) => {
               {/* Desktop CTAs (conditionally rendered mimicking vida.js) */}
               {isDesktop && (
                 <>
-                  <Link
+                  <a
                     className="btn btn--ghost btn--sm"
-                    to="/afiliarse"
+                    href="#cta-heading"
+                    onClick={(e) => handleNavClick(e, 'cta-heading')}
                     id="connect-btn"
                   >
                     Afíliate ya
-                  </Link>
+                  </a>
                   <Link
                     className="btn btn--primary btn--sm"
                     to="/contacto"
@@ -178,7 +179,7 @@ const Header = ({ isScrolled }) => {
         <ul role="list">
           {[
             { id: 'hero', label: 'Inicio', path: '/', scroll: true },
-            { id: 'discover', label: 'Afíliate', path: '/', scroll: true },
+            { id: 'cta-heading', label: 'Afíliate', path: '/', scroll: true },
             { id: 'tokens', label: 'Sobre Nosotros', path: '/sobre-nosotros', scroll: false },
             { id: 'cta-heading', label: 'Contacto', path: '/contacto', scroll: false },
           ].map((link) => (

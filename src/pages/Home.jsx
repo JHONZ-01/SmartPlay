@@ -10,10 +10,10 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <TickerBar />
       <Features />
       <Stats />
       <TokensMarket />
+      <TickerBar />
       <CtaSection />
     </>
   );
