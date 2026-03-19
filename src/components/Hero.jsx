@@ -1,6 +1,6 @@
 import React from 'react';
 import { useToast } from './ToastProvider';
-import tvHero from '../assets/images2/unnamed-removebg-preview.png';
+import tvHero from '../assets/images2/dispositivos.png';
 
 const Hero = () => {
   const { showToast } = useToast();
