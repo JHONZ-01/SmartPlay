@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import tvImage from '../assets/images/tv.png';
+import tvImage from '../assets/images2/tv.png';
 
 const Stats = () => {
   const itemsRef = useRef([]);
@@ -64,7 +64,7 @@ const Stats = () => {
   ];
 
   const clienteItems = [
-    { title: 'Facilidad de pagos.', items: ['Quincenales.', 'Semanales.', 'Mensuales.', 'Cuotas pequeñitas.'] },
+    { title: 'Facilidad de pagos.', items: ['Semanales.', 'Mensuales.', 'Cuotas pequeñitas.'] },
     { title: 'Premios - Regalos sorpresas.', items: ['Cuotas sin retraso.', 'Sin entrada en tu próxima compra.'] },
     { title: 'Mejora tu historial.', items: ['Certificado de crédito.', 'Mejora de nivel crediticio.'] },
     { title: 'Variedad.', items: ['Marcas.', 'Modelos.'] },
@@ -97,8 +97,7 @@ const Stats = () => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '48px', alignItems: 'center', marginTop: '48px' }}>
-
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px 1fr', gap: '48px', alignItems: 'start', marginTop: '48px' }}>
           {/* Columna izquierda: Empresa */}
           <div>
             <h3 style={{ color: '#FF6200', fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '4px' }}>Empresa</h3>
@@ -109,12 +108,13 @@ const Stats = () => {
           {/* Columna central: TV */}
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            borderRadius: '50%', width: '320px', height: '320px', padding: '24px',
+            borderRadius: '50%', width: '340px', height: '340px', padding: '40px',
             background: 'rgba(255,255,255,0.04)',
             animation: 'pulse-glow 3s ease-in-out infinite',
+            flexShrink: 0,
           }}>
             <div style={{
-              width: '700px', height: '200px',
+              width: '260px', height: '180px',
               border: '8px solid #333', borderRadius: '8px', background: '#111',
               overflow: 'hidden',
               animation: 'tv-pulse 3s ease-in-out infinite',

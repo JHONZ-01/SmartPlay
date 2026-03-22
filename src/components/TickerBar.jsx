@@ -67,7 +67,7 @@ const TickerBar = () => {
               <div className="ticker-brand" style={{
                 display: 'flex', alignItems: 'center',
                 padding: 'var(--space-3) var(--space-6)',
-                background: 'var(--color-deep)',
+                background: '#ffffff',
                 borderRadius: 'var(--radius-lg)',
                 border: '1px solid var(--color-border)',
                 boxShadow: 'var(--shadow-card)',
@@ -98,7 +98,7 @@ const TickerBar = () => {
               <div className="ticker-brand" style={{
                 display: 'flex', alignItems: 'center',
                 padding: 'var(--space-3) var(--space-6)',
-                background: 'var(--color-deep)',
+                background: '#ffffff',
                 borderRadius: 'var(--radius-lg)',
                 border: '1px solid var(--color-border)',
                 boxShadow: 'var(--shadow-card)',

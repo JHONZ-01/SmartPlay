@@ -28,25 +28,43 @@ const Contacto = () => {
 
                     {/* Grid de tarjetas info */}
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)' }}>
-
                         {[
                             {
-                                icono: '📍',
+                                icono: (
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                ),
                                 titulo: 'UBICACIÓN',
                                 lineas: ['Av. Naciones Unidas y Av. Río Amazonas,', 'Edificio Unicornio II, Piso 15-04']
                             },
                             {
-                                icono: '📞',
+                                icono: (
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                    </svg>
+                                ),
                                 titulo: 'TELÉFONOS',
                                 lineas: ['096 903 1988 / 096 019 2561']
                             },
                             {
-                                icono: '✉️',
+                                icono: (
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                        <polyline points="22,6 12,13 2,6" />
+                                    </svg>
+                                ),
                                 titulo: 'CORREO',
                                 lineas: ['ventas@lockplay.org']
                             },
                             {
-                                icono: '🕐',
+                                icono: (
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                ),
                                 titulo: 'ATENCIÓN',
                                 lineas: ['Lun - Vie: 09:30 - 18:30']
                             },
@@ -56,31 +74,37 @@ const Contacto = () => {
                                 border: '1px solid var(--color-border)',
                                 borderRadius: 'var(--radius-lg)',
                                 padding: 'var(--space-6)',
-                                display: 'flex', flexDirection: 'column', gap: 'var(--space-4)',
+                                display: 'flex', flexDirection: 'column', gap: 'var(--space-3)',
                                 transition: 'transform var(--dur-mid) ease, box-shadow var(--dur-mid) ease',
                             }}
                                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = 'var(--shadow-acid)'; }}
                                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
                             >
-                                <div style={{
-                                    width: '44px', height: '44px', borderRadius: '50%',
-                                    background: 'rgba(255,98,0,0.1)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontSize: '20px'
-                                }}>{item.icono}</div>
-                                <div>
-                                    <p style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: 'var(--text-sm)', marginBottom: 'var(--space-2)', color: 'var(--color-white)' }}>
+                                {/* Icono + Título en la misma fila */}
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
+                                    <div style={{
+                                        width: '44px', height: '44px', borderRadius: 'var(--radius-md)',
+                                        background: 'rgba(255,98,0,0.1)', flexShrink: 0,
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                        color: 'var(--color-acid)',
+                                    }}>{item.icono}</div>
+                                    <p style={{
+                                        fontFamily: 'var(--font-display)', fontWeight: '700',
+                                        fontSize: 'var(--text-sm)', color: 'var(--color-white)'
+                                    }}>
                                         {item.titulo}
                                     </p>
+                                </div>
+
+                                {/* Líneas de texto debajo */}
+                                <div>
                                     {item.lineas.map((linea, j) => (
                                         <p key={j} style={{ color: 'var(--color-muted)', fontSize: 'var(--text-sm)', lineHeight: 1.6 }}>{linea}</p>
                                     ))}
                                 </div>
                             </div>
                         ))}
-
                     </div>
-
                     {/* Botón WhatsApp */}
                     <a
                         href="https://wa.me/593969031988?text=Hola,%20quiero%20hablar%20con%20un%20asesor"
