@@ -4,6 +4,7 @@ const Features = () => {
   return (
     <section className="section" id="discover" aria-labelledby="features-heading">
       <div className="container">
+
         <div className="section__header">
           <span className="section__eyebrow" aria-hidden="true">// Smart Pay</span>
           <h2 className="section__title" id="features-heading">
@@ -15,7 +16,12 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="features-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+        {/* ── Grid Responsivo Automático usando tus clases ── */}
+        <div className="features-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))'
+        }}>
+
           <article className="feature-card feature-card--highlight" tabIndex="0">
             <div className="feature-card__icon feature-card__icon--acid" role="img" aria-label="Ventas">
               💰
@@ -35,8 +41,7 @@ const Features = () => {
             <h3 className="feature-card__title">Vende más con cuotas accesibles</h3>
             <p className="feature-card__desc">
               Facilita el acceso a televisores, celulares y más con pagos
-              quincenales, semanales y mensuales. Manten el control del dispositivo,
-              asegurando el cumplimiento del pago.
+              quincenales, semanales y mensuales. Manten el control del dispositivo.
             </p>
             <span className="feature-card__tag">Pagos Flexibles</span>
           </article>
@@ -53,7 +58,7 @@ const Features = () => {
             <span className="feature-card__tag">100% Seguro</span>
           </article>
 
-          <article className="feature-card" tabIndex="0" style={{ gridColumn: '1 / 2' }}>
+          <article className="feature-card" tabIndex="0">
             <div className="feature-card__icon feature-card__icon--teal" role="img" aria-label="Clientes">
               🤝
             </div>
@@ -61,20 +66,18 @@ const Features = () => {
             <p className="feature-card__desc">
               Amplía tu cartera de clientes con planes de pago flexibles. Más
               personas se animan a comprar cuando saben que pueden pagar en cuotas.
-              Tú aumentas tus ventas.
             </p>
             <span className="feature-card__tag">Más Clientes</span>
           </article>
 
-          <article className="feature-card" tabIndex="0" style={{ gridColumn: '2 / 3' }}>
+          <article className="feature-card" tabIndex="0">
             <div className="feature-card__icon feature-card__icon--acid" role="img" aria-label="Respaldo">
               🏢
             </div>
-            <h3 className="feature-card__title">Fortalece tu tienda con el respaldo de una empresa sólida</h3>
+            <h3 className="feature-card__title">Respaldo de una empresa sólida</h3>
             <p className="feature-card__desc">
               Tus clientes confían más cuando una empresa formal respalda el
-              crédito. Tú te conviertes en una tienda aliada con respaldo
-              tecnológico y financiero.
+              crédito. Tú te conviertes en una tienda aliada con respaldo tecnológico.
             </p>
             <span className="feature-card__tag">Respaldo Total</span>
           </article>

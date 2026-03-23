@@ -14,7 +14,7 @@ const Stats = () => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 } // Se redujo levemente el threshold para que se dispare mejor en móvil
     );
 
     itemsRef.current.forEach((el) => {
@@ -40,16 +40,16 @@ const Stats = () => {
         }}
       >
         <div style={{
-          minWidth: '40px', height: '40px',
+          minWidth: '36px', height: '36px', // Levemente más compacto
           background: side === 'left' ? '#FF6200' : '#1a237e',
           clipPath: 'polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          color: 'white', fontSize: '16px', flexShrink: 0,
+          color: 'white', fontSize: '14px', flexShrink: 0,
         }}>✓</div>
         <div>
-          <p style={{ color: '#FF6200', fontWeight: 'bold', marginBottom: '4px' }}>{item.title}</p>
+          <p style={{ color: '#FF6200', fontWeight: 'bold', marginBottom: '4px', fontSize: '1rem' }}>{item.title}</p>
           {item.items.map((point, j) => (
-            <p key={j} style={{ opacity: 0.75, fontSize: '0.9rem' }}>- {point}</p>
+            <p key={j} style={{ opacity: 0.75, fontSize: '0.88rem', marginBottom: '2px', color: 'white' }}>- {point}</p>
           ))}
         </div>
       </div>
@@ -71,19 +71,19 @@ const Stats = () => {
   ];
 
   return (
-    <section className="section section--alt" aria-labelledby="stats-heading">
+    <section className="section section--alt" aria-labelledby="stats-heading" style={{ padding: 'var(--space-12) 0' }}>
 
       {/* Estilos de animaciones */}
       <style>{`
         @keyframes pulse-glow {
-          0%   { box-shadow: 0 0 20px 4px rgba(255,98,0,0.3); }
-          50%  { box-shadow: 0 0 45px 12px rgba(255,98,0,0.6); }
-          100% { box-shadow: 0 0 20px 4px rgba(255,98,0,0.3); }
+          0%   { box-shadow: 0 0 20px 4px rgba(255,98,0,0.2); }
+          50%  { box-shadow: 0 0 40px 10px rgba(255,98,0,0.45); }
+          100% { box-shadow: 0 0 20px 4px rgba(255,98,0,0.2); }
         }
         @keyframes tv-pulse {
-          0%   { box-shadow: 0 0 15px 3px rgba(255,98,0,0.2); }
-          50%  { box-shadow: 0 0 35px 10px rgba(255,98,0,0.55); }
-          100% { box-shadow: 0 0 15px 3px rgba(255,98,0,0.2); }
+          0%   { box-shadow: 0 0 15px 3px rgba(255,98,0,0.15); }
+          50%  { box-shadow: 0 0 30px 8px rgba(255,98,0,0.35); }
+          100% { box-shadow: 0 0 15px 3px rgba(255,98,0,0.15); }
         }
       `}</style>
 
@@ -97,36 +97,48 @@ const Stats = () => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px 1fr', gap: '48px', alignItems: 'start', marginTop: '48px' }}>
-          {/* Columna izquierda: Empresa */}
-          <div>
+        {/* ── GRID ADAPTABLE INTELIGENTE ── */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', // Auto-layout sin romper
+          gap: '48px',
+          alignItems: 'center', // Centrado vertical de la TV con los textos
+          marginTop: '48px'
+        }}>
+
+          {/* Columna 1: Empresa */}
+          <div style={{ order: 1 }}>
             <h3 style={{ color: '#FF6200', fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '4px' }}>Empresa</h3>
-            <p style={{ marginBottom: '32px', opacity: 0.8 }}>Aumenta tus ventas.</p>
+            <p style={{ marginBottom: '32px', color: 'rgba(255,255,255,0.7)' }}>Aumenta tus ventas.</p>
             {renderItems(empresaItems, 'left')}
           </div>
 
-          {/* Columna central: TV */}
+          {/* Columna 2: TV (En medio en PC, entre Empresa y Cliente en móvil) */}
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            borderRadius: '50%', width: '340px', height: '340px', padding: '40px',
-            background: 'rgba(255,255,255,0.04)',
-            animation: 'pulse-glow 3s ease-in-out infinite',
-            flexShrink: 0,
+            order: 2,
           }}>
             <div style={{
-              width: '260px', height: '180px',
-              border: '8px solid #333', borderRadius: '8px', background: '#111',
-              overflow: 'hidden',
-              animation: 'tv-pulse 3s ease-in-out infinite',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              borderRadius: '50%', width: 'clamp(280px, 100%, 340px)', height: 'clamp(280px, 100%, 340px)', padding: '30px',
+              background: 'rgba(255,255,255,0.03)',
+              animation: 'pulse-glow 3s ease-in-out infinite',
             }}>
-              <img src={tvImage} alt="Smart Pay TV" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }} />
+              <div style={{
+                width: '100%', height: '180px', maxWidth: '260px',
+                border: '6px solid #222', borderRadius: '8px', background: '#000',
+                overflow: 'hidden',
+                animation: 'tv-pulse 3s ease-in-out infinite',
+              }}>
+                <img src={tvImage} alt="Smart Pay TV" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
             </div>
           </div>
 
-          {/* Columna derecha: Cliente */}
-          <div>
+          {/* Columna 3: Cliente */}
+          <div style={{ order: 3 }}>
             <h3 style={{ color: '#FF6200', fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '4px' }}>Cliente</h3>
-            <p style={{ marginBottom: '32px', opacity: 0.8 }}>Mejora tu nivel crediticio.</p>
+            <p style={{ marginBottom: '32px', color: 'rgba(255,255,255,0.7)' }}>Mejora tu nivel crediticio.</p>
             {renderItems(clienteItems, 'right')}
           </div>
 

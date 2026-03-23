@@ -173,12 +173,102 @@ const Header = ({ isScrolled }) => {
         </div>
       </nav>
 
-      {/* Menú móvil simplificado */}
-      <div className={`nav__mobile-menu ${isMobileMenuOpen ? 'is-open' : ''}`} style={{ display: isMobileMenuOpen ? 'block' : 'none', position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', background: 'rgba(10,10,12,0.98)', zIndex: 999, paddingTop: '100px', paddingLeft: '40px' }}>
-        {/* ... Contenido del menú móvil (opcional) ... */}
-      </div>
+      {/* Menú móvil */}
+      <div style={{
+        position: 'fixed', top: 0, left: 0,
+        width: '100%', height: '100vh',
+        background: 'rgba(10,10,15,0.98)',
+        backdropFilter: 'blur(20px)',
+        zIndex: 999,
+        display: 'flex', flexDirection: 'column',
+        padding: '100px 40px 40px',
+        transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(100%)',
+        transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        overflowY: 'auto',
+      }}>
+
+        {/* Links */}
+        <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
+          {navLinks.map((link, i) => (
+            <li key={link.id} style={{
+              opacity: isMobileMenuOpen ? 1 : 0,
+              transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(20px)',
+              transition: `opacity 0.3s ease ${i * 0.07}s, transform 0.3s ease ${i * 0.07}s`,
+            }}>
+              {link.scroll ? (
+                <a
+                  href={`#${link.id}`}
+                  onClick={(e) => handleNavClick(e, link.id)}
+                  style={{
+                    display: 'block', padding: '16px 0',
+                    color: activeSection === link.id ? 'var(--color-acid)' : 'rgba(255,255,255,0.8)',
+                    textDecoration: 'none', fontSize: '1.6rem', fontWeight: '700',
+                    fontFamily: 'var(--font-display)',
+                    borderBottom: '1px solid rgba(255,255,255,0.07)',
+                    transition: 'color 0.2s ease',
+                  }}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    display: 'block', padding: '16px 0',
+                    color: location.pathname === link.path ? 'var(--color-acid)' : 'rgba(255,255,255,0.8)',
+                    textDecoration: 'none', fontSize: '1.6rem', fontWeight: '700',
+                    fontFamily: 'var(--font-display)',
+                    borderBottom: '1px solid rgba(255,255,255,0.07)',
+                    transition: 'color 0.2s ease',
+                  }}
+                >
+                  {link.label}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        {/* Botones al fondo */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '32px' }}>
+          <a
+            href="https://api.whatsapp.com/send/?phone=593997518833"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsMobileMenuOpen(false)}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+              padding: '16px', borderRadius: '14px',
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              color: 'white', textDecoration: 'none',
+              fontWeight: '600', fontSize: '1rem',
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+            </svg>
+            WhatsApp
+          </a>
+
+          <a
+            href="#hero"
+            onClick={(e) => { handleNavClick(e, 'hero'); setIsMobileMenuOpen(false); }}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              padding: '16px', borderRadius: '14px',
+              background: 'linear-gradient(135deg, #FF8a40 0%, #D15000 100%)',
+              color: 'white', textDecoration: 'none',
+              fontWeight: '700', fontSize: '1rem',
+              boxShadow: '0 4px 15px rgba(209,80,0,0.4)',
+            }}
+          >
+            Empieza hoy
+          </a>
+        </div >
+      </div >
     </>
   );
 };
-
 export default Header;
