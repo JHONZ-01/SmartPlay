@@ -92,7 +92,7 @@ const Footer = ({ showScrollTop }) => {
                         <polyline points="22,6 12,13 2,6" />
                       </svg>
                     ),
-                    text: 'ventas@lockplay.org'
+                    text: 'oficialsmartpay@gmail.com'
                   },
                 ].map((item, i) => (
                   <li key={i} style={{
