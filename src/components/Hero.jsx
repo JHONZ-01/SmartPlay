@@ -80,7 +80,7 @@ const Hero = () => {
 
               {/* Botón WhatsApp glass */}
               <a
-                href="https://wa.me/593969031988"
+                href="https://wa.me/593990405914"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
