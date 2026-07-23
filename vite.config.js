@@ -4,7 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  // Absolute base so assets resolve correctly on /contacto, /sobre-nosotros, etc.
+  base: '/',
 })
 
 
