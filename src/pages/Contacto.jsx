@@ -27,7 +27,7 @@ const Contacto = () => {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
 {/* Botón WhatsApp */}
 <a
-                        href="https://wa.me/593984096292?text=Hola,%20quiero%20hablar%20con%20un%20asesor"
+                        href="https://wa.me/593963401401?text=Hola,%20quiero%20hablar%20con%20un%20asesor"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{

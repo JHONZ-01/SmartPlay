@@ -122,7 +122,7 @@ const Header = ({ isScrolled }) => {
               {isDesktop && (
                 <>
                   <a
-                    href="https://api.whatsapp.com/send/?phone=5930984096292"
+                    href="https://api.whatsapp.com/send/?phone=593963401401"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -233,7 +233,7 @@ const Header = ({ isScrolled }) => {
         {/* Botones al fondo */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '32px' }}>
           <a
-            href="https://api.whatsapp.com/send/?phone=593984096292"
+            href="https://api.whatsapp.com/send/?phone=593963401401"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
